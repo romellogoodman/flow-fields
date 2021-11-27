@@ -1,6 +1,6 @@
 # flow-field
 
-[![npm version](https://badge.fury.io/js/@romellogoodman/flow-field.svg)](https://badge.fury.io/js/@romellogoodman/flow-field)
+[![npm version](https://badge.fury.io/js/@romellogoodman%2Fflow-field.svg)](https://badge.fury.io/js/@romellogoodman%2Fflow-field)
 
 A library for generating flow fields. Resources for learning more about flow fields and noise:
 
@@ -17,7 +17,7 @@ A library for generating flow fields. Resources for learning more about flow fie
 
 ### Install
 
-[npm](https://www.npmjs.com/package/@romellogoodman/flow-field)
+npm
 
 ```
 npm i @romellogoodman/flow-field
