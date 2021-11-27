@@ -32,10 +32,31 @@ unpkg
 ### Use
 
 ```js
-// tk
+import {generateField} from '@romellogoodman/flow-field';
+
+const field = generateField({});
 ```
 
 ## API
+
+### generateParticles
+
+- `@param {String} tk` More tk.
+- `@return {String}` More tk.
+
+tk
+
+### moveParticle
+
+- `@param {String} tk` More tk.
+- `@return {String}` More tk.
+
+tk
+
+### generateField
+
+- `@param {String} tk` More tk.
+- `@return {String}` More tk.
 
 tk
 
