@@ -1,6 +1,6 @@
 # flow-field
 
-[![npm version](https://badge.fury.io/js/flow-field.svg)](https://badge.fury.io/js/flow-field)
+[![npm version](https://badge.fury.io/js/@romellogoodman/flow-field.svg)](https://badge.fury.io/js/@romellogoodman/flow-field)
 
 A library for generating flow fields.
 
@@ -17,13 +17,13 @@ A library for generating flow fields.
 npm
 
 ```
-npm i flow-fields
+npm i @romellogoodman/flow-field
 ```
 
 unpkg
 
 ```
-<script src="https://unpkg.com/flow-fields"></script>
+<script src="https://unpkg.com/@romellogoodman/flow-field"></script>
 ```
 
 ### Use
