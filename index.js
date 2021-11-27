@@ -2,9 +2,9 @@ import {MersenneTwister19937, Random} from 'random-js';
 import SimplexNoise from 'simplex-noise';
 
 const getRandom = () => {
-  console.log('Seed:', MersenneTwister19937.autoSeed());
+  const seed = MersenneTwister19937.autoSeed();
 
-  return new Random();
+  return new Random(seed);
 };
 
 const simplex = new SimplexNoise();
