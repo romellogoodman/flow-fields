@@ -9,7 +9,7 @@ const getRandom = (randomSeed) => {
 
 const simplex = new SimplexNoise();
 
-const noise2D = (simplex, x, y, frequency, amplitude) => {
+const noise2D = (x, y, frequency, amplitude) => {
   return simplex.noise2D(x * frequency, y * frequency) * amplitude;
 };
 
@@ -74,7 +74,7 @@ export const moveParticle = ({
   particle,
 }) => {
   // Calculate direction from noise
-  const angle = noise2D(simplex, particle.x, particle.y, frequency, amplitude);
+  const angle = noise2D(particle.x, particle.y, frequency, amplitude);
 
   // Update the velocity of the particle based on the direction
   particle.vx += Math.cos(angle) * lengthOfStep;
@@ -97,15 +97,18 @@ export const generateField = ({
   damping = 0.1,
   height,
   margin = 0.1,
+  particles: suppliedParticles,
+  scale = 1,
   seed,
   width,
-  scale = 1,
 } = {}) => {
   const maxParticleSteps = 30 * scale;
   const lengthOfStep = 5 * scale;
   const frequency = 0.001 / scale;
   const particles =
-    generateParticles({count, height, margin, seed, width}) || [];
+    suppliedParticles ||
+    generateParticles({count, height, margin, seed, width}) ||
+    [];
 
   particles?.forEach((particle) => {
     while (particle.line.length < maxParticleSteps) {
