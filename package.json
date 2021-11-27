@@ -1,12 +1,12 @@
 {
-  "name": "flow-field",
-  "version": "0.15.0",
+  "name": "@romellogoodman/flow-field",
+  "version": "0.0.0",
   "description": "A library for scripting SVGs.",
   "scripts": {
     "dev": "microbundle watch",
     "build": "microbundle",
     "lint": "eslint .",
-    "test": "jest",
+    "test": "echo \"tests\"",
     "prepublish": "npm run lint && npm test && npm run build"
   },
   "devDependencies": {
@@ -30,7 +30,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/romellogoodman/flow-field.js.git"
+    "url": "https://github.com/romellogoodman/flow-fields.git"
   },
   "keywords": [
     "svgs"
