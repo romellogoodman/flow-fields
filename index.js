@@ -87,21 +87,20 @@ export const moveParticle = (particle) => {
   particle.vx *= DAMPING;
   particle.vy *= DAMPING;
 
-  // particle.line.push({x: particle.x, y: particle.y});
   particle.line.push([particle.x, particle.y]);
 };
 
 export const generateField = ({height, margin = 0, width}) => {
-  const particles = generateParticles(width, height, margin);
+  const particles = generateParticles(width, height, margin) || [];
 
   // Filter after all of the steps
   particles
-    .forEach((particle) => {
+    ?.forEach((particle) => {
       while (particle.line.length < PARTICLE_STEPS) {
         moveParticle(particle);
       }
     })
-    .forEach((particle) => {
+    ?.forEach((particle) => {
       particle.line = particle.line.filter((particle) => {
         return isInBound(particle[0], particle[1], width, height, margin);
       });
