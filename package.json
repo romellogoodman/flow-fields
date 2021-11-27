@@ -9,6 +9,10 @@
     "test": "echo \"tests\"",
     "prepublish": "npm run lint && npm test && npm run build"
   },
+  "dependencies": {
+    "random-js": "^2.1.0",
+    "simplex-noise": "^3.0.0"
+  },
   "devDependencies": {
     "@babel/preset-env": "^7.13.12",
     "babel-eslint": "^10.1.0",
@@ -33,7 +37,8 @@
     "url": "https://github.com/romellogoodman/flow-fields.git"
   },
   "keywords": [
-    "svgs"
+    "creative coding",
+    "flow fields"
   ],
   "babel": {
     "presets": [
@@ -84,9 +89,5 @@
   "prettier": {
     "bracketSpacing": false,
     "singleQuote": true
-  },
-  "dependencies": {
-    "random-js": "^2.1.0",
-    "simplex-noise": "^3.0.0"
   }
 }
