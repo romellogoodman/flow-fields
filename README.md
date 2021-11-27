@@ -17,7 +17,7 @@ A library for generating flow fields. Resources for learning more about flow fie
 
 ### Install
 
-npm
+[npm](https://www.npmjs.com/package/@romellogoodman/flow-field)
 
 ```
 npm i @romellogoodman/flow-field
