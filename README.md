@@ -2,7 +2,11 @@
 
 [![npm version](https://badge.fury.io/js/@romellogoodman%2Fflow-field.svg)](https://badge.fury.io/js/@romellogoodman%2Fflow-field)
 
-A library for generating flow fields. Resources for learning more about flow fields and noise:
+A library for generating flow fields.
+
+Demo: [Codesandbox Demo](https://codesandbox.io/s/flow-field-demo-kkzmg)
+
+Resources for learning more about flow fields and noise:
 
 - [Flow Fields by Tyler Hobbs](https://tylerxhobbs.com/essays/2020/flow-fields)
 - [Noise by Varun Vachhar](https://varun.ca/noise/)
