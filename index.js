@@ -1,5 +1,5 @@
-import {MersenneTwister19937, Random} from 'random-js';
-import SimplexNoise from 'simplex-noise';
+import { MersenneTwister19937, Random } from "random-js";
+import SimplexNoise from "simplex-noise";
 
 const getRandom = (randomSeed) => {
   const seed = randomSeed || MersenneTwister19937.autoSeed();
@@ -26,7 +26,7 @@ const getBounds = (width, height, margin) => {
 };
 
 const isInBound = (xCood, yCoord, width, height, margin) => {
-  const {minWidth, maxWidth, minHeight, maxHeight} = getBounds(
+  const { minWidth, maxWidth, minHeight, maxHeight } = getBounds(
     width,
     height,
     margin
@@ -40,6 +40,17 @@ const isInBound = (xCood, yCoord, width, height, margin) => {
   );
 };
 
+/**
+ * Creates the particles for a flow field.
+ *
+ * @param {Object} config Configuration object
+ * @param {Number} config.count Number of particles in the field
+ * @param {Number} config.height Height of space
+ * @param {Number} config.margin Percent of height/width to create a padding
+ * @param {String} config.seed Random (random-js) seed
+ * @param {Number} config.width Width of space
+ * @return {Array} List of particle objects containing the starting x and y coordinates
+ */
 export const generateParticles = ({
   count,
   height,
@@ -49,7 +60,7 @@ export const generateParticles = ({
 }) => {
   const random = getRandom(seed);
   const bounds = getBounds(width, height, margin);
-  const {minWidth, maxWidth, minHeight, maxHeight} = bounds;
+  const { minWidth, maxWidth, minHeight, maxHeight } = bounds;
   let particles = [];
 
   // Generate some particles with a random position
@@ -66,6 +77,17 @@ export const generateParticles = ({
   return particles;
 };
 
+/**
+ * Computes the new position for a particle and adds it to the particle.line array.
+ *
+ * @param {Object} config Configuration object
+ * @param {Number} config.amplitude Controls the range of values we get from the noise function
+ * @param {Number} config.damping Slows down the particle (think friction)
+ * @param {Number} config.frequency Controls how quickly/slowly the noise function is "evolving over time"
+ * @param {Number} config.lengthOfStep Amount to move the coordinate
+ * @param {Object} config.particle Particle object containing the current position and velocity
+ * @return {void} Operates on the particle and returns nothing
+ */
 export const moveParticle = ({
   amplitude,
   damping,
@@ -91,6 +113,21 @@ export const moveParticle = ({
   particle.line.push([particle.x, particle.y]);
 };
 
+/**
+ * Creates a flow field with particles and lines.
+ *
+ * @param {Object} config Configuration object
+ * @param {Number} [config.amplitude=5] Controls the range of values we get from the noise function
+ * @param {Number} [config.count=1000] Number of particles in the field
+ * @param {Number} [config.damping=0.1] Percentage that slows down the particle (think friction)
+ * @param {Number} config.height Height of space
+ * @param {Number} [config.margin=0.1] Percent of height/width to create a padding
+ * @param {Object} [config.particles] List of particles to use instead of generating them
+ * @param {String} [config.scale=1] Used to compute frequency, number of steps and step length
+ * @param {String} config.seed Random (random-js) seed
+ * @param {Number} config.width Width of space
+ * @return {Array} List of particle objects containing the line coordinates
+ */
 export const generateField = ({
   amplitude = 5,
   count = 1000,
@@ -107,7 +144,7 @@ export const generateField = ({
   const frequency = 0.001 / scale;
   const particles =
     suppliedParticles ||
-    generateParticles({count, height, margin, seed, width}) ||
+    generateParticles({ count, height, margin, seed, width }) ||
     [];
 
   particles?.forEach((particle) => {
