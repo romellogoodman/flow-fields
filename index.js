@@ -1,16 +1,18 @@
 import { MersenneTwister19937, Random } from "random-js";
-import SimplexNoise from "simplex-noise";
+import { createNoise2D } from "simplex-noise";
 
 const getRandom = (randomSeed) => {
-  const seed = randomSeed || MersenneTwister19937.autoSeed();
+  const engine = randomSeed
+    ? MersenneTwister19937.seed(randomSeed)
+    : MersenneTwister19937.autoSeed();
 
-  return new Random(seed);
+  return new Random(engine);
 };
 
-const simplex = new SimplexNoise();
+const noise2D = createNoise2D();
 
-const noise2D = (x, y, frequency, amplitude) => {
-  return simplex.noise2D(x * frequency, y * frequency) * amplitude;
+const getNoiseValue = (x, y, frequency, amplitude) => {
+  return noise2D(x * frequency, y * frequency) * amplitude;
 };
 
 const getBounds = (width, height, margin) => {
@@ -96,7 +98,7 @@ export const moveParticle = ({
   particle,
 }) => {
   // Calculate direction from noise
-  const angle = noise2D(particle.x, particle.y, frequency, amplitude);
+  const angle = getNoiseValue(particle.x, particle.y, frequency, amplitude);
 
   // Update the velocity of the particle based on the direction
   particle.vx += Math.cos(angle) * lengthOfStep;
