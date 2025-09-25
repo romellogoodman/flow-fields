@@ -2,6 +2,10 @@
 
 A library for generating flow fields.
 
+Check out the visualizer:
+- [flow-fields.romellogoodman.com](flow-fields.romellogoodman.com)
+- [Flow Fields Visualizer Github Repo](https://github.com/romellogoodman/flow-fields-visualizer)
+
 Resources for learning more about flow fields and noise:
 
 - [Flow Field Are.na Board](https://www.are.na/romello-goodman/flow-fields-ddrqag_mr44)
