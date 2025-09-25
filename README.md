@@ -3,7 +3,7 @@
 A library for generating flow fields.
 
 Check out the visualizer:
-- [flow-fields.romellogoodman.com](flow-fields.romellogoodman.com)
+- [flow-fields.romellogoodman.com](https://flow-fields.romellogoodman.com/)
 - [Flow Fields Visualizer Github Repo](https://github.com/romellogoodman/flow-fields-visualizer)
 
 Resources for learning more about flow fields and noise:
